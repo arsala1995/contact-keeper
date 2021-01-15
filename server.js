@@ -1,6 +1,9 @@
 const express = require('express');
-
+const connectDB = require('./config/db')
 const app = express();
+
+// import and connect DB from db.js
+connectDB();
 
 app.get('/', (req, res) => res.send('Hello World'));
 
