@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = reqire('config');
+const config = require('config');
 const { check, validationResult } = require('express-validator/check');
 const User = require('../models/User');
 
@@ -23,7 +23,7 @@ router.post('/', [
     'password', 'Please enter a password with 6 or more characters'
   ).isLength({ min: 6 })
 ], 
-(req, res) => {
+async (req, res) => {
   const errors = validationResult(req);
   if(!errors.isEmpty()) {
     //after requesting body if error occurs
