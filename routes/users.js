@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator/check');
+const User = require('../models/User');
 
 const user = require('../models/User');
 // @route  POST api/users
@@ -22,10 +23,41 @@ router.post('/', [
 (req, res) => {
   const errors = validationResult(req);
   if(!errors.isEmpty()) {
+    //after requesting body if error occurs
     return res.status(400).json({ errors: errors.array() });
   }
 
-  res.send("Passed!")
+  //if no error occurs fetch this data
+  const { name, email, password } = req.body;
+
+  try {
+    let user = await User.findOne({ email: email });
+
+    if(user) {
+      //if user already exists
+      return res.status(400).json({ msg: 'User already exists'})
+    }
+
+    user = new User({
+      //create new user if not exist
+      name,
+      email,
+      password
+    });
+
+    //encrypt the password
+    const salt = await bcrypt.getSalt(10);
+    //to make it a hash password
+    user.password = await bcrypt.hash(password, salt);
+
+    await user.save();
+
+    
+  } catch {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+
 });
 
 module.exports = router;
