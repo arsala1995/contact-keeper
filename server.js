@@ -5,6 +5,9 @@ const app = express();
 // import and connect DB from db.js
 connectDB();
 
+//init middleware to use req.body
+app.use(express.json({ extended: false }));
+
 app.get('/', (req, res) => res.send('Hello World'));
 
 // Define our routes
