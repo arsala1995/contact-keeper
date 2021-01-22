@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const auth = require('../middleware/auth')
 const { check, validationResult } = require('express-validator/check');
 const User = require('../models/User');
 
@@ -13,8 +14,8 @@ const user = require('../models/User');
 //@access  Private
 
  //pretains to api/auth
-router.get('/', (req, res) => {
-  res.send("Get logged in user")
+router.get('/', auth, (req, res) => {
+  res.send("Get logged in user");
 });
 
 // @route  POSt api/auth
