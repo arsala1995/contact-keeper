@@ -62,7 +62,7 @@ router.get('/', auth, async (req, res) => {
 //@access  Private
 
  //pretains to api/contacts
- router.put('/:id', (req, res) => {
+ router.put('/:id',auth, async (req, res) => {
   const { name, email, phone, type } = req.body;
 
   //build contact object
@@ -96,8 +96,23 @@ router.get('/', auth, async (req, res) => {
 //@access  Private
 
  //pretains to api/contacts
- router.delete('/:id', (req, res) => {
-  res.send("Delete contacts")
+ router.delete('/:id', auth, async (req, res) => {
+  try {
+    let contact = await Contact.findById(req.params.id);
+    if(!contact) return res.status(400).json({ msg: 'Contact not found' });
+
+    //make sure user owns contact
+    if(contact.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: 'Not authorized' })
+    }
+    await Contact.findByIdAndRemove(req.params.id);
+    
+    res.json({msg: 'Contact removed'})
+ 
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
 });
 
 module.exports = router;
