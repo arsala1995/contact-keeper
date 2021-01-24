@@ -6,7 +6,6 @@ const config = require('config');
 const { check, validationResult } = require('express-validator/check');
 const User = require('../models/User');
 
-const user = require('../models/User');
 // @route  POST api/users
 //@desc    Register a user
 //@access  Public
@@ -34,7 +33,7 @@ async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
-    let user = await User.findOne({ email: email });
+    let user = await User.findOne({ email });
 
     if(user) {
       //if user already exists
