@@ -63,7 +63,32 @@ router.get('/', auth, async (req, res) => {
 
  //pretains to api/contacts
  router.put('/:id', (req, res) => {
-  res.send("Update contacts")
+  const { name, email, phone, type } = req.body;
+
+  //build contact object
+  const contactFields = {};
+  if(name) contactFields.name = name;
+  if(email) contactFields.email = email;
+  if(phone) contactFields.phone = phone;
+  if(type) contactFields.type = type;
+
+  try {
+    let contact = await Contact.findById(req.params.id);
+    if(!contact) return res.status(400).json({ msg: 'Contact not found' });
+
+    //make sure user owns contact
+    if(contact.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: 'Not authorized' })
+    }
+    contact = await Contact.findByIdAndUpdate(req.params.id, { $set: contactFields },
+      { new: true });
+
+      res.json(contact)
+ 
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
 });
 
 // @route  Delete api/contacts
