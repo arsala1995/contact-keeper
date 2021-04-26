@@ -5,7 +5,6 @@ import './App.css';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 import ContactState from './context/contact/ContactState'
-import { Router } from 'express';
 
 const App = () => {
   return (
