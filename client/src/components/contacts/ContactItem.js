@@ -23,6 +23,10 @@ import React from 'react'
           <i className="fas fa-phone"></i>{phone}
         </li>)}
       </ul>
+      <p>
+        <button className="btn btn-dark btn-sm">Edit</button>
+        <button className="btn btn-danger btn-sm">Edit</button>
+      </p>
     </div>
   )
 }
