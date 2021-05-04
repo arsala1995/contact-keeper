@@ -15,6 +15,11 @@ import React from 'react'
           
         </span>
       </h3>
+      <ul className="list">
+        {email && (<li>
+          <i className="fas fa-envelope-open"></i>
+        </li>)}
+      </ul>
     </div>
   )
 }
