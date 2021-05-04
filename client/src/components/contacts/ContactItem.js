@@ -17,7 +17,10 @@ import React from 'react'
       </h3>
       <ul className="list">
         {email && (<li>
-          <i className="fas fa-envelope-open"></i>
+          <i className="fas fa-envelope-open"></i>{email}
+        </li>)}
+        {phone && (<li>
+          <i className="fas fa-phone"></i>{phone}
         </li>)}
       </ul>
     </div>
