@@ -25,7 +25,7 @@ import React from 'react'
       </ul>
       <p>
         <button className="btn btn-dark btn-sm">Edit</button>
-        <button className="btn btn-danger btn-sm">Edit</button>
+        <button className="btn btn-danger btn-sm">Delete</button>
       </p>
     </div>
   )
