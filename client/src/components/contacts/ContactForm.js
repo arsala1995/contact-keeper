@@ -13,7 +13,7 @@ export const ContactForm = () => {
       <h2 className="text-primary">Add Contact</h2>
       <input 
       type="text" 
-      placeholder="name" 
+      placeholder="Name" 
       name="name" value={name} 
       onChange={onChange} 
       />
@@ -24,6 +24,15 @@ export const ContactForm = () => {
        value={email} 
       onChange={onChange} 
       />
+      <input 
+      type="text" 
+      placeholder="Phone" 
+      name="phone"
+       value={phone} 
+      onChange={onChange} 
+      />
+      <h5>Contact Type</h5>
+      
     </form>
   )
 }
