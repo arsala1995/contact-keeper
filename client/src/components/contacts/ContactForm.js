@@ -36,7 +36,9 @@ export const ContactForm = () => {
       /> Personal {' '}
        <input type="radio" name="type" value="professional" checked={type === 'professional'}
       /> Professional {' '}
-    
+    <div>
+      <input type="submit" value="Add Contact" className="btn btn-primary" />
+    </div>
     </form>
   )
 }
