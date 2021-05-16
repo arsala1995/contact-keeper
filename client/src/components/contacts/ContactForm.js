@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
+import ContactContext from '../../context/contact/contactContext'
+
+
 
 export const ContactForm = () => {
+  const contactContext = useContext(ContactContext);
+
   const [contact, setContact] = useState({
     name:'',
     email: '',
@@ -13,7 +18,7 @@ export const ContactForm = () => {
   const onChange = e => setContact({ ...contact, [e.target.name]: e.target.value});
 
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <h2 className="text-primary">Add Contact</h2>
       <input 
       type="text" 
