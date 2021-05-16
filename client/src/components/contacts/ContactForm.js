@@ -17,6 +17,17 @@ export const ContactForm = () => {
 
   const onChange = e => setContact({ ...contact, [e.target.name]: e.target.value});
 
+  onSubmit = e => {
+    e.preventDefault();
+    contactContext.addContact(contact);
+    setContact({
+      name:'',
+      email: '',
+      phone: '',
+      type: 'personal'
+    })
+  }
+
   return (
     <form onSubmit={onSubmit}>
       <h2 className="text-primary">Add Contact</h2>
