@@ -8,7 +8,7 @@ import ContactContext from '../../context/contact/contactContext'
   const { id, name, email, phone, type } = contact;
 
   const onDelete = () => {
-
+    deleteContact(id);
   }
 
   return (

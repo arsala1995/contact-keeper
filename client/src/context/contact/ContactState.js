@@ -49,6 +49,10 @@ const ContactState = props => {
   }
 
   //Dete contact
+  const deleteContact = id => {
+    contact.id = uuid.v4();
+    dispatch({ type: DELETE_CONTACT, payload: id })
+  }
 
   //set current contact
 
