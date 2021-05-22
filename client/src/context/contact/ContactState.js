@@ -61,6 +61,9 @@ const ContactState = props => {
 
 
   //clear current contact
+  const clearCurrent = () => {
+    dispatch({ type: CLEAR_CURRENT })
+  }
 
   //update Contact
 
