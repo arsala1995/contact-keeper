@@ -11,6 +11,13 @@ export const ContactForm = () => {
   useEffect(() => {
     if(current !== null) {
       setContact(current);
+    } else {
+      setContact({
+        name:'',
+        email: '',
+        phone: '',
+        type: 'personal'
+      })
     }
   })
 
