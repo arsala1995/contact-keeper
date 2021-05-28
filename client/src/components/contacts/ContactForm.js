@@ -26,7 +26,7 @@ export const ContactForm = () => {
     email: '',
     phone: '',
     type: 'personal'
-  });
+  }, [contactContext, current]);
   
   const { name, email, phone, type } = contact;
 
