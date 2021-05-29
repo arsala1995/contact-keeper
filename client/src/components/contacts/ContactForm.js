@@ -74,8 +74,11 @@ export const ContactForm = () => {
        onChange={onChange} 
       /> Professional {' '}
     <div>
-      <input type="submit" value={current ? 'Edit Contact' : 'Add Contact'} className="btn btn-primary" />
+      <input type="submit" value={current ? 'Update Contact' : 'Add Contact'} className="btn btn-primary" />
     </div>
+    {current && <div>
+      <button className="btn btn-light btn-block" onClick={clearAll}>Clear</button>
+      </div>}
     </form>
   )
 }
