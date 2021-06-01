@@ -44,7 +44,7 @@ export const ContactForm = () => {
   }
 
   const clearAll = () => {
-    
+    clearCurrent();
   }
 
   return (
