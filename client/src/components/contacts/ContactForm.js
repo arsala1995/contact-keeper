@@ -34,7 +34,11 @@ export const ContactForm = () => {
 
   onSubmit = e => {
     e.preventDefault();
-    contactContext.addContact(contact);
+    if(current === null) {
+      addContact(contact);
+    } else {
+      
+    }
     setContact({
       name:'',
       email: '',
