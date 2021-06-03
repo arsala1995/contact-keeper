@@ -39,12 +39,13 @@ export const ContactForm = () => {
     } else {
       
     }
-    setContact({
-      name:'',
-      email: '',
-      phone: '',
-      type: 'personal'
-    })
+    // setContact({
+    //   name:'',
+    //   email: '',
+    //   phone: '',
+    //   type: 'personal'
+    // })
+    clearAll();
   }
 
   const clearAll = () => {
