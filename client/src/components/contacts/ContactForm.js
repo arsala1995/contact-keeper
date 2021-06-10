@@ -37,14 +37,9 @@ export const ContactForm = () => {
     if(current === null) {
       addContact(contact);
     } else {
-      
+      updateContact();
     }
-    // setContact({
-    //   name:'',
-    //   email: '',
-    //   phone: '',
-    //   type: 'personal'
-    // })
+
     clearAll();
   }
 
