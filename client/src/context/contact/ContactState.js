@@ -72,8 +72,8 @@ const ContactState = props => {
   }
 
   //filter contact
-  const filterContacts = contact => {
-    dispatch({ type: UPDATE_CONTACT, payload: contact })
+  const filterContacts = text => {
+    dispatch({ type: FILTER_CONTACTS, payload: text })
   }
 
   //Clear Filter
