@@ -35,7 +35,10 @@ export default (state, action) => {
         ...state,
         current: action.payload
       };
-    
+    case FILTER_CONTACTS: 
+      return {
+      ...state,
+      }
     default:
       return state;
   }
