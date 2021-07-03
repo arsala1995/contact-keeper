@@ -40,7 +40,7 @@ export default (state, action) => {
       ...state,
       filter: state.contacts.filter(contact => {
         const regex = new RegExp(`${action.payload}`, 'gi')
-        return contact.name.match(regex);
+        return contact.name.match(regex) || contact.email.match(regex);
       })
       }
     default:
