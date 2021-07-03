@@ -38,6 +38,7 @@ export default (state, action) => {
     case FILTER_CONTACTS: 
       return {
       ...state,
+      filter: state.contacts.filter()
       }
     default:
       return state;
